@@ -15,6 +15,15 @@ class AuthController extends Controller
         // echo Hash::make($pass);
 
         if (Auth::guard('karyawan')->attempt(['nik' => $request->nik, 'password' => $request->password])) {
+
+            if(isset($nik['remember'])&&!empty($password['remember'])){
+                setcookie("email",$nik['email'],time()+3600);
+                setcookie("password",$password['password'],time()+3600);
+                
+            }else{
+                setcookie("email","");
+                setcookie("password","");
+            }
             return redirect('/dashboard');
         } else {
             return redirect('/')->with(['warning' => 'Nik / Password Salah']);
@@ -41,6 +50,15 @@ class AuthController extends Controller
         // echo Hash::make($pass);
 
         if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
+
+            if(isset($email['remember'])&&!empty($password['remember'])){
+                setcookie("email",$email['email'],time()+3600);
+                setcookie("password",$password['password'],time()+3600);
+                
+            }else{
+                setcookie("email","");
+                setcookie("password","");
+            }
             return redirect('/panel/dashboardadmin');
         } else {
             return redirect('/panel')->with(['warning' => 'Email atau Password Salah']);

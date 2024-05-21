@@ -50,7 +50,7 @@
                     @csrf
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK">
+                            <input type="text" name="nik" class="form-control" id="nik" placeholder="NIK" @if(isset($_COKKIE["nik"])) value="{{ $_COKKIE["nik"] }}" @endif>
                             <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>
@@ -59,7 +59,7 @@
 
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" @if(isset($_COKKIE["password"])) value="{{ $_COKKIE["password"] }}" @endif>
                             <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>
@@ -72,6 +72,13 @@
                         </div> --}}
                         {{-- <div><a href="page-forgot-password.html" class="text-muted">Forgot Password?</a></div> --}}
                     </div>
+
+                    <div class="mb-2">
+                        <label class="form-check">
+                          <input type="checkbox" name="remember" class="form-check-input"/>
+                          <span class="form-check-label">Remember me on this device</span>
+                        </label>
+                      </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success btn-block btn-lg">Log in</button>
