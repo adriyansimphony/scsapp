@@ -55,7 +55,7 @@
 
 <!-- Set "A5", "A4" or "A3" for class name -->
 <!-- Set also "landscape" if you need -->
-<body class="A4 landscape">
+<body class="A3 landscape">
 
     <?php
         function selisih($jam_masuk, $jam_keluar)

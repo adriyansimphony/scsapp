@@ -60,9 +60,18 @@
                     <div class="form-group boxed">
                         <div class="input-wrapper">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" @if(isset($_COKKIE["password"])) value="{{ $_COKKIE["password"] }}" @endif>
-                            <i class="clear-input">
+
+                                <i class="bi bi-eye-slash d-flex justify-content-end" id="togglePassword"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                                </i>
+                            
+                            {{-- <i class="clear-input">
+
+                                <ion-icon name="eye-outline">tes</ion-icon>
+                            </i> --}}
+                            {{-- <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
-                            </i>
+                            </i> --}}
                         </div>
                     </div>
 
@@ -89,6 +98,7 @@
                     </div> --}}
 
                 </form>
+
             </div>
         </div>
 
@@ -112,6 +122,21 @@
     <script src="{{ asset('assets/js/plugins/jquery-circle-progress/circle-progress.min.js') }}"></script>
     <!-- Base Js File -->
     <script src="{{ asset('assets/js/base.js') }}"></script>
+    <script>
+        const togglePassword = document
+            .querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        togglePassword.addEventListener('click', () => {
+            // Toggle the type attribute using
+            // getAttribure() method
+            const type = password
+                .getAttribute('type') === 'password' ?
+                'text' : 'password';
+            password.setAttribute('type', type);
+            // Toggle the eye and bi-eye icon
+            this.classList.toggle('bi-eye');
+        });
+    </script>
 
 
 </body>
