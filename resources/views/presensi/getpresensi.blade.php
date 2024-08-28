@@ -39,9 +39,9 @@
         @endif
     </td>
     <td>
-        @if ($d->jam_in >= '08:00')
+        @if ($d->jam_in >= '08:15')
         @php
-        $jamterlambat = selisih('08:00:00',$d->jam_in);
+        $jamterlambat = selisih('08:15:00',$d->jam_in);
         @endphp
         <span class="badge bg-danger text-light">Terlambat {{ $jamterlambat }}</span>
         @else             

@@ -141,7 +141,7 @@
         @php
         $path_in = Storage::url('uploads/absensi/'.$d->foto_in);
         $path_out = Storage::url('uploads/absensi/'.$d->foto_out);
-        $jamterlambat = selisih('08:00:00',$d->jam_in);
+        $jamterlambat = selisih('08:15:00',$d->jam_in);
         @endphp
         <tr>
             <td>{{ $loop->iteration }}</td>
@@ -157,7 +157,7 @@
                 @endif
             </td>
             <td>
-                @if ($d->jam_in > '08:00')
+                @if ($d->jam_in > '08:15')
                 Terlambat {{ $jamterlambat }}
                 @else
                 Tepat Waktu

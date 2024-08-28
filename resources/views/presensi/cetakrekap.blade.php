@@ -128,14 +128,14 @@
                 }else{
                     $hadir = explode("-",$d->$tgl);
                     $totalhadir += 1;
-                    if ($hadir[0] > "08:00:00") {
+                    if ($hadir[0] > "08:15:00") {
                         $totalterlambat += 1;
                     }
                 }
                 
                 ?>
                 <td>
-                    <span style="color: {{ $hadir[0] > "08:00:00" ? "red" : "" }}">{{ $hadir[0] }}</span> <br>
+                    <span style="color: {{ $hadir[0] > "08:15:00" ? "red" : "" }}">{{ $hadir[0] }}</span> <br>
                     <span style="color: {{ $hadir[1] < "17:00:00" ? "red" : "" }}">{{ $hadir[1] }}</span>
                 </td>
                 <?php
